@@ -1,0 +1,29 @@
+{
+  "name": "githubnames.ts",
+  "version": "1.0.0",
+  "description": "Proof of concept of quick search using observables and typescript",
+  "main": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "serve": "http-server output/"
+  },
+  "keywords": [
+    "rxjs",
+    "github",
+    "typescript",
+    "concept"
+  ],
+  "author": "Miguel Sanchez Gonzalez <miguelsanychez@gmail.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "rxjs": "^5.3.0",
+    "awesome-typescript-loader": "^3.1.2",
+    "html-webpack-plugin": "^2.28.0",
+    "http-server": "^0.9.0",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
