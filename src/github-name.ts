@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounce';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/pluck';
 
 
 export class GithubNameSearch {
@@ -26,8 +27,9 @@ export class GithubNameSearch {
         this.search$ = Observable
             .fromEvent( this.$search, 'keyup' )
             .debounce( () => Observable.interval( 300 ) )
-            .map( ( event: KeyboardEvent ) => <HTMLInputElement>event.target )
-            .map( ( target: HTMLInputElement ) => target.value )
+            .pluck( 'target' )
+            .pluck( 'value' )
+            .filter( ( username: string) => !!username.trim() )
             .switchMap( username => this.fetch( username ) )
             .filter( json => json.message !== 'Not Found' )
             .subscribe( json => this.render( json ) );
