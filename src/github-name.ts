@@ -38,8 +38,7 @@ export class GithubNameSearch {
 
     private fetch ( username ) {
 
-        const api = this.api;
-        const promise = fetch( `${api}/${username}` );
+        const promise = fetch( `${this.api}/${username}` );
 
         return Observable
             .fromPromise( promise )
