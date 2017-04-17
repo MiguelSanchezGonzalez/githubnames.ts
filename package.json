@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "prebuild": "rm -rf output/",
+    "build": "webpack --optimize-minimize",
     "dev": "webpack-dev-server",
     "serve": "http-server output/"
   },
