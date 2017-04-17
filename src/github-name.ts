@@ -27,8 +27,7 @@ export class GithubNameSearch {
         this.search$ = Observable
             .fromEvent( this.$search, 'keyup' )
             .debounce( () => Observable.interval( 300 ) )
-            .pluck( 'target' )
-            .pluck( 'value' )
+            .pluck( 'target', 'value' )
             .filter( ( username: string) => !!username.trim() )
             .switchMap( username => this.fetch( username ) )
             .filter( json => json.message !== 'Not Found' )
